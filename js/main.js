@@ -20,11 +20,18 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
 let contador = 0;
 
 while (contador < listaDeTeclas.length) {
+    
+    const tecla = listaDeTeclas[contador];
+    const som = tecla.classList[1];
+
+    /*a crase torna a string dinâmica, permitindo o uso de código com $
+    chamado de template string */
+    const idAudio = `#som_${som}`;
+
     /*função genérica para que a função tocaSom()
     não seja executada imediatamente*/
-    listaDeTeclas[contador].onclick = function() {
-        tocaSom('#som_tecla_pom');
+    tecla.onclick = function() {
+        tocaSom(idAudio);
     }
     contador++;
-    console.log(contador);
 }
