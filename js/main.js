@@ -1,5 +1,11 @@
 function tocaSom(idElementoAudio) {
-    document.querySelector(idElementoAudio).play();
+    const elemento = document.querySelector(idElementoAudio);
+
+    if (elemento != null && elemento.localName === 'audio') {
+        elemento.play();
+    } else {
+        console.log('Elemento não encontrado');
+    }
 }
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
@@ -49,6 +55,7 @@ for (let cont = 0; cont < listaDeTeclas.length; cont++) {
     quando a tecla espaco ou enter é acionado em um dos botões de som
     */
     tecla.onkeydown = function (evento) {
+
         /*
         .code informa qual tecla foi disparada
         */
