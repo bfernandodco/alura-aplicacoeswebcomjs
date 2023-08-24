@@ -15,6 +15,7 @@ function tocaSom(idElementoAudio) {
     document.querySelector(idElementoAudio).play();
 }
 
+//###CONSTRUÇÃO COM O WHILE###
 //const = constante | let = variável
 const listaDeTeclas = document.querySelectorAll('.tecla');
 let contador = 0;
@@ -29,9 +30,21 @@ while (contador < listaDeTeclas.length) {
     const idAudio = `#som_${som}`;
 
     /*função genérica para que a função tocaSom()
-    não seja executada imediatamente*/
+    não seja executada imediatamente ao abrir o navegador*/
     tecla.onclick = function() {
         tocaSom(idAudio);
     }
     contador++;
+}
+
+//###CONSTRUÇÃO COM O FOR###
+for (cont = 0; cont < listaDeTeclas.length; cont++) {
+
+    const tecla = listaDeTeclas[cont];
+    const som = tecla.classList[1];
+    const idAudio = `#som_${som}`;
+
+    tecla.onclick = function() {
+        tocaSom(idAudio);
+    }
 }
